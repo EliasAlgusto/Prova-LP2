@@ -1,0 +1,20 @@
+
+with open("livro.txt", "r") as livros:
+    livros=livros.read()
+    print('livros')
+
+
+nota=float(input('Digite uma nota de 0 a 10, para o livro:'))
+
+if nota <=10:
+  print('Não é possivel solicitar novamente!')
+else:
+   print('Não é aceita!')
+while True:
+ status=input('Voce esta lendo, lido ou na fila?')
+ if status :
+   break
+   print('pode proseguir')
+ else:
+   print('Valor incorreto')
+ 
