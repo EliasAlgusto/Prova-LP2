@@ -1,0 +1,26 @@
+
+
+
+with open("livros.txt", "r") as f:
+    livros = f.readlines()
+
+with open("livros_avaliacao.txt", "w") as arquivo:
+    for livro in livros:
+        ano, titulo, autor = livro.strip().split(", ")
+
+        while True:
+            try:
+                nota = float(input(f"Digite a nota para '{titulo}': "))
+                if 0 <= nota <= 10:
+                    break
+            except:
+                pass
+            print("Nota inválida. Digite novamente (0 a 10).")
+
+        while True:
+            status = input("Status (lido, lendo, na fila): ").lower()
+            if status in ["lido", "lendo", "na fila"]:
+                break
+            print("Status inválido. Digite novamente.")
+
+        arquivo.write(f"{ano}, {titulo}, {autor}, {nota}, {status}\n")
