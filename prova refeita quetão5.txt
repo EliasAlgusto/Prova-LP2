@@ -1,0 +1,13 @@
+
+
+livros = []
+
+with open("livros_recomendados.txt", "r") as f:
+    for linha in f:
+        ano, titulo, autor, nota, status = linha.strip().split(", ")
+        livros.append((titulo, float(nota)))
+
+livros.sort(key=lambda x: -x[1])
+
+for titulo, nota in livros:
+    print(f"{titulo} - Nota: {nota}")
